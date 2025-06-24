@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MessageCircle, Rupee } from 'lucide-react';
+import { MessageCircle, Mail } from 'lucide-react';
 
 const DirectOrderForm = () => {
   const [movieName, setMovieName] = useState('');
@@ -20,8 +20,24 @@ Custom Details: ${customDetails || 'Standard poster design'}
 
 Please confirm the order and payment details.`;
 
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/919949246650?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleEmailOrder = () => {
+    const subject = encodeURIComponent('Movie Poster Order');
+    const body = encodeURIComponent(`Hi! I want to order a movie poster:
+
+Movie: ${movieName}
+Size: ${size} (₹100)
+Custom Details: ${customDetails || 'Standard poster design'}
+
+Please confirm the order and payment details.
+
+Thank you!`);
+
+    const emailUrl = `mailto:vishalpasumarty@gmail.com?subject=${subject}&body=${body}`;
+    window.open(emailUrl, '_blank');
   };
 
   const handleInstagramOrder = () => {
@@ -90,6 +106,16 @@ Please confirm the order and payment details.`;
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Order via WhatsApp
+                </Button>
+
+                <Button
+                  onClick={handleEmailOrder}
+                  disabled={!movieName.trim()}
+                  variant="outline"
+                  className="w-full border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white py-3 text-lg"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Order via Email
                 </Button>
 
                 <Button

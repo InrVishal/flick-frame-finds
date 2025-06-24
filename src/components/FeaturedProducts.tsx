@@ -1,6 +1,5 @@
 
 import ProductCard from './ProductCard';
-import { Button } from '@/components/ui/button';
 
 const featuredProducts = [
   {
@@ -76,16 +75,11 @@ const FeaturedProducts = () => {
   return (
     <section className="py-16 bg-black">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <h2 className="text-4xl font-bold text-white mb-4">Featured Posters</h2>
-            <p className="text-gray-400 text-lg">
-              Handpicked collection of the most popular movie posters
-            </p>
-          </div>
-          <Button variant="outline" className="border-red-600 text-red-500 hover:bg-red-600 hover:text-white">
-            View All
-          </Button>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-4">Movie Posters Collection</h2>
+          <p className="text-gray-400 text-lg">
+            Premium quality movie posters for your collection
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -1,5 +1,6 @@
 
 import Header from '@/components/Header';
+import DirectOrderForm from '@/components/DirectOrderForm';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import Footer from '@/components/Footer';
 
@@ -14,6 +15,7 @@ const Index = () => {
           </h1>
           <p className="text-gray-400 text-lg">From @cinemabaanisa91</p>
         </div>
+        <DirectOrderForm />
         <FeaturedProducts />
       </div>
       <Footer />

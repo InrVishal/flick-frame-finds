@@ -31,7 +31,7 @@ Custom Details: ${customDetails || 'Standard poster design'}
 
 Please confirm the order and payment details.`;
 
-    const whatsappUrl = `https://wa.me/919949246650?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/9949246650?text=${encodeURIComponent(message)}`;
     console.log('WhatsApp URL:', whatsappUrl);
     window.open(whatsappUrl, '_blank');
   };

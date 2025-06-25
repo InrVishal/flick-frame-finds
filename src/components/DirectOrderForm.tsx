@@ -32,21 +32,7 @@ Please confirm the order and payment details.`;
 
     const whatsappUrl = `https://wa.me/9949246650?text=${encodeURIComponent(message)}`;
     console.log('WhatsApp URL:', whatsappUrl);
-    
-    // Try different approaches for opening WhatsApp
-    try {
-      // First try: direct window.open
-      const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      
-      // If popup blocked, try location.href as fallback
-      if (!newWindow) {
-        window.location.href = whatsappUrl;
-      }
-    } catch (error) {
-      console.error('Error opening WhatsApp:', error);
-      // Final fallback: try location.href
-      window.location.href = whatsappUrl;
-    }
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleEmailOrder = () => {

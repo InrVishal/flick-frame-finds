@@ -11,32 +11,47 @@ const DirectOrderForm = () => {
   const [customDetails, setCustomDetails] = useState('');
   const [size, setSize] = useState('A4');
 
-  const handleDirectOrder = () => {
-    const message = `Hi! I want to order a movie poster:
+  const getPrice = () => {
+    switch(size) {
+      case 'A4': return '₹100';
+      case 'A3': return '₹150';
+      case 'Custom': return 'Contact for price';
+      default: return '₹100';
+    }
+  };
+
+  const handleWhatsAppOrder = () => {
+    if (!movieName.trim()) return;
     
+    const message = `Hi! I want to order a movie poster:
+
 Movie: ${movieName}
-Size: ${size} (₹100)
+Size: ${size} (${getPrice()})
 Custom Details: ${customDetails || 'Standard poster design'}
 
 Please confirm the order and payment details.`;
 
     const whatsappUrl = `https://wa.me/919949246650?text=${encodeURIComponent(message)}`;
+    console.log('WhatsApp URL:', whatsappUrl);
     window.open(whatsappUrl, '_blank');
   };
 
   const handleEmailOrder = () => {
-    const subject = encodeURIComponent('Movie Poster Order');
-    const body = encodeURIComponent(`Hi! I want to order a movie poster:
+    if (!movieName.trim()) return;
+    
+    const subject = 'Movie Poster Order';
+    const body = `Hi! I want to order a movie poster:
 
 Movie: ${movieName}
-Size: ${size} (₹100)
+Size: ${size} (${getPrice()})
 Custom Details: ${customDetails || 'Standard poster design'}
 
 Please confirm the order and payment details.
 
-Thank you!`);
+Thank you!`;
 
-    const emailUrl = `mailto:vishalpasumarty@gmail.com?subject=${subject}&body=${body}`;
+    const emailUrl = `mailto:vishalpasumarty@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    console.log('Email URL:', emailUrl);
     window.open(emailUrl, '_blank');
   };
 
@@ -100,7 +115,7 @@ Thank you!`);
 
               <div className="space-y-3">
                 <Button
-                  onClick={handleDirectOrder}
+                  onClick={handleWhatsAppOrder}
                   disabled={!movieName.trim()}
                   className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-lg"
                 >

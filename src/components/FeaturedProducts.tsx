@@ -1,23 +1,7 @@
+
 import ProductCard from './ProductCard';
 
 const featuredProducts = [
-  {
-    title: "The Matrix",
-    year: "1999",
-    price: "24.99",
-    originalPrice: "29.99",
-    imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&w=400&h=600&fit=crop",
-    rating: 5,
-    isNew: true
-  },
-  {
-    title: "Blade Runner 2049",
-    year: "2017",
-    price: "19.99",
-    imageUrl: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&w=400&h=600&fit=crop",
-    rating: 5,
-    isNew: false
-  },
   {
     title: "Interstellar",
     year: "2014",
